@@ -1,0 +1,27 @@
+<%- include('header') -%> <!-- Including the header partial for a consistent page header across the site -->
+
+<div class="text-center center-div" id="login">
+    <div class="container w-25 border py-5">
+        <div class="title pb-5">
+            <h2 class="font-weight-bold">Login System</h2> <!-- Main title for the page -->
+            <span>Log in for the existing user</span> <!-- Subtitle or additional information for clarity -->
+            <% if(locals.logout){ %> <!-- Conditional rendering based on whether the user has just logged out -->
+                <div class="alert alert-success text-center">
+                    <%= logout %> <!-- Displaying a success message post-logout -->
+                </div>
+            <% } %>
+        </div>
+        <form action="/route/login" method="POST" class="pt-3"> <!-- Form for login with method POST -->
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="email" name="email"> <!-- Email input field -->
+                <small class="form-text text-muted text-left">Register email address</small> <!-- Additional hint for the input -->
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="password"> <!-- Password input field -->
+            </div>
+            <button type="submit" class="btn btn-success rounded-pill">Submit</button> <!-- Submit button for the form -->
+        </form>
+    </div>
+</div>
+
+<%- include('footer') -%> <!-- Including the footer partial for a consistent page footer across the site -->
